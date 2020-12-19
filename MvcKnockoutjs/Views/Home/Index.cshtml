@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body data-bind="style: {backgroundColor: backgroundColor}" style="background-color: blue;">
+    <h2>Magic KO</h2>
+
+    <p data-bind="text: personName"></p>
+    <p data-bind="text: personAge"></p>
+    <hr />
+    <p>
+        <input data-bind="value: personName" />
+    </p>
+    <p>
+        <input data-bind="value: personAge" />
+    </p>
+    <p>
+        <input data-bind="value: backgroundColor " />
+    </p>
+    <hr />
+    <button data-bind="click: clickHandler">Save</button>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/knockout-3.5.1.js"></script>
+     
+    <script>
+
+    var myViewModel = {
+    personName: ko.observable('Bob'),
+    personAge: ko.observable(23),
+    backgroundColor: ko.observable("blue")
+    };
+
+    $(document).ready(function () {
+        ko.applyBindings(myViewModel);
+    });
+    </script>
+</body>
